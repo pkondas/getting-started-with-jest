@@ -22,7 +22,6 @@ describe("Filter function", () => {
 
     }),
     test("it should filter by a search term (uri)", () => {
-        //TODO: Try to figure out why "url" doesn't work in toEqual(), but LINK and URI does.
         const input = [
             { id: 1, url: "https://www.url1.dev" },
             { id: 2, url: "https://www.url2.dev" },
