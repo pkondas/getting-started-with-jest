@@ -1,11 +1,4 @@
-function filterByTerm(inputArr, searchTerm) {
-        // case insensitive regular expression
-        const regex = new RegExp(searchTerm, "i");
-        
-        return inputArr.filter(function(arrayElement) {
-            return arrayElement.url.match(regex);
-        });
-}
+const filterByTerm = require("../src/filterByTerm");
 
 describe("Filter function", () => {
     test("it should filter by a search term (link)", () => {
@@ -41,10 +34,8 @@ describe("Filter function", () => {
             { id: 3, url: "https://www.uri3.dev" }
         ];
 
-        const output = [{ id: 1, url: "https://www.url1.dev" }];
-
-        expect(filterByTerm(input, "")).toEqual(expect.arrayContaining(output));
-        expect(filterByTerm(input, "")).toEqual(expect.arrayContaining(output));
-
+        expect( () => {
+            filterByTerm(input, "").toThrowError();
+        });
     });
 });
