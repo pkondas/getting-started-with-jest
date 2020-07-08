@@ -27,7 +27,7 @@ describe("Filter function", () => {
         expect(filterByTerm(input, "URL")).toEqual(expect.arrayContaining(output));
 
     }),
-    test("it should filter by a search term (<empty string>)", () => {
+    test("it should error on an empty search term", () => {
         const input = [
             { id: 1, url: "https://www.url1.dev" },
             { id: 2, url: "https://www.url2.dev" },
@@ -36,6 +36,15 @@ describe("Filter function", () => {
 
         expect( () => {
             filterByTerm(input, "").toThrowError();
+        });
+    }),
+    test("it should error on an empty argument", () => {
+        const input = [
+            
+        ];
+
+        expect( () => {
+            filterByTerm(input, "url").toThrowError();
         });
     });
 });
